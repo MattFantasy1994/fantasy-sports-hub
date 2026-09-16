@@ -1,0 +1,177 @@
+function showPlayers() {
+
+    const league = getLeague();
+
+    const app = document.getElementById("app");
+
+    let rows = "";
+
+    league.players.forEach((player, index) => {
+
+        rows += `
+            <tr>
+
+                <td>
+                    ${index + 1}
+                </td>
+
+                <td>
+                    <strong>${player.name}</strong>
+                </td>
+
+                <td>
+                    ${player.wins}
+                </td>
+
+                <td>
+                    ${player.ties}
+                </td>
+
+                <td>
+                    ${player.losses}
+                </td>
+
+                <td>
+                    ${player.points}
+                </td>
+
+                <td>
+
+                    <button
+                        class="btn btn-danger"
+                        onclick="removePlayer(${player.id})">
+
+                        Remove
+
+                    </button>
+
+                </td>
+
+            </tr>
+        `;
+
+    });
+
+
+    app.innerHTML = `
+
+        <div class="page-title">
+
+            <h2>👥 ${league.name} Players</h2>
+
+            <p>
+                Add, view, and manage league players.
+            </p>
+
+        </div>
+
+
+        <!-- ADD PLAYER CARD -->
+
+        <div class="card">
+
+            <h3>➕ Add Player</h3>
+
+            <p>
+                Enter a player's name below.
+            </p>
+
+
+            <div class="form-group">
+
+                <label for="newPlayerName">
+                    Player Name
+                </label>
+
+                <input
+                    id="newPlayerName"
+                    type="text"
+                    placeholder="Enter player name"
+                    onkeydown="if(event.key === 'Enter') addPlayer()"
+                >
+
+            </div>
+
+
+            <button
+                class="btn btn-success"
+                onclick="addPlayer()">
+
+                ➕ Add Player
+
+            </button>
+
+        </div>
+
+
+        <br>
+
+
+        <!-- PLAYER LIST -->
+
+        <div class="card">
+
+            <h3>
+                Current Players
+            </h3>
+
+
+            ${
+                league.players.length === 0
+
+                ?
+
+                `<p>
+                    No players have been added yet.
+                </p>`
+
+                :
+
+                `
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>#</th>
+
+                                <th>Player</th>
+
+                                <th>Wins</th>
+
+                                <th>Ties</th>
+
+                                <th>Losses</th>
+
+                                <th>Points</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            ${rows}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                `
+
+            }
+
+        </div>
+
+    `;
+
+}
