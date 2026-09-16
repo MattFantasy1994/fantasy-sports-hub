@@ -1,0 +1,3 @@
+<button onclick="showPage('players')">
+    👥 Players
+</button>
