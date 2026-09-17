@@ -295,7 +295,7 @@ function showDashboard() {
                 <div class="stat-number">
                     ${totalPlayers}
                 </div>
-                <div class="small">16 player maximum</div>
+                <div class="small">30 player maximum</div>
             </div>
 
             <div class="card stat-card">
