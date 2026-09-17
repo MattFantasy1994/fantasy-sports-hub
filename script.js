@@ -520,10 +520,10 @@ function addPlayer() {
         return;
     }
 
-    if (league.players.length >= 16) {
+    if (league.players.length >= 30) {
 
         alert(
-            "The league is limited to 16 players."
+            "The league is limited to 30 players."
         );
 
         return;
