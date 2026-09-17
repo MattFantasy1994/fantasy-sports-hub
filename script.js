@@ -1312,10 +1312,10 @@ function showStandings() {
 
 function generateSchedule() {
 
-    if (league.players.length !== 16) {
+    if (league.players.length !== 30) {
 
         alert(
-            "The schedule requires exactly 16 players."
+            "The schedule requires exactly 30 players."
         );
 
         return;
@@ -1329,10 +1329,10 @@ function generateSchedule() {
 
 
     /*
-        Circle method for a 16-player
+        Circle method for a 30-player
         round-robin schedule.
 
-        15 weeks guarantees every player
+        18 weeks guarantees every player
         plays every other player once.
     */
 
